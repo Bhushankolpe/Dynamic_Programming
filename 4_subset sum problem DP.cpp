@@ -96,9 +96,9 @@ bool ok(vi v,ll n,ll t)
 {
 	bool dp[n+1][t+1];
 	for(ll j=0;j<=t;j++)
-	dp[j][0]=false;
+	dp[0][j]=false;
 	for(ll i=0;i<n+1;i++)
-	dp[0][i]=true;
+	dp[j][0]=true;
 	for(ll i=1;i<n+1;i++)
 	{
 		for(ll j=1;j<t+1;j++)
