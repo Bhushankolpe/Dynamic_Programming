@@ -93,7 +93,7 @@ ll mex(vector<ll>v)
 //***************************************START YOUR CODE FROM HERE******************************************//
 // ll arr[1001];
 
-int frogJump(int n, vector<ll> &heights)
+int frogJump(int n, vector<int> &heights)
 {
     // Write your code here.
     if(n==1)
@@ -102,16 +102,17 @@ int frogJump(int n, vector<ll> &heights)
         return abs(heights[0]-heights[1]);
     vector<int>dp(n+1,0);
         dp[0]=0;
-    dp[1]=0;
-    dp[2]=abs(heights[0]-heights[1]);
+   int prev2=0;
+   int prev1=abs(heights[0]-heights[1]);
     for(int i=3;i<=n;i++)
     {
-
-   dp[i]=min(dp[i-1]+abs(heights[i-2]-heights[i-1]),dp[i-2]+abs(heights[i-3]-heights[i-1]));
+   int temp=prev1;
+   prev1=min(prev1+abs(heights[i-2]-heights[i-1]),prev2+abs(heights[i-3]-heights[i-1]));
+        prev2=temp;
+        
     }
-    return dp[n];
+    return prev1;
 }
-
 int main()
 {
 	BHUSHAN;
