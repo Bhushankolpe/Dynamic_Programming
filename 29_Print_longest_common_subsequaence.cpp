@@ -110,7 +110,7 @@ string longestCommonSubstr (string S1, string S2, int n, int m)
         int idx=dp[n][m]-1;
         string s(dp[n][m],'0');
         int i=n,j=m;
-        while(i!=0 || j!=0)
+        while(i>0 && j>0)
         {
             if(S1[i-1]==S2[j-1])
             {
